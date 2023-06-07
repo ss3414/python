@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="{{ url_for('static',filename='jquery-2.2.4.min.js') }}"></script>
+</head>
+<body>
+
+<!--{{ str }}-->
+
+<!--<table>-->
+<!--    {% for user in users %}-->
+    <!--    <tr>-->
+    <!--        <td>{{ user.id }}</td>-->
+    <!--        <td>{{ user.name }}</td>-->
+    <!--    </tr>-->
+    <!--    {% endfor %}-->
+<!--</table>-->
+
+<table border="1">
+    <tr>
+        <td><a href="/">首页</a></td>
+    </tr>
+    <form action="/form" method="post">
+        <tr>
+            <td><input type="text" name="name"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="提交"></td>
+        </tr>
+    </form>
+    <tr>
+        <td><a href="/download">下载</a></td>
+    </tr>
+    <tr>
+        <td><a href="javascript:void(0)" onclick="test()">AJAX</a></td>
+    </tr>
+    <tr>
+        <td><a href="javascript:void(0)" onclick="test2()">WebSocket</a></td>
+    </tr>
+</table>
+
+<script>
+    function test() {
+        $.ajax({
+            type: "post",
+            url: "/form",
+            data: {
+                name: "name"
+            },
+            dataType: "json",
+            success: function (response) {
+                console.log(response)
+            }
+        })
+    }
+
+    function test2() {
+        let url = "ws://" + location.host + "/connect"
+        let websocket = new WebSocket(url)
+        websocket.onopen = function () {
+            console.log("websocket onopen")
+            websocket.send("5")
+        }
+        websocket.onmessage = function (event) {
+            console.log(event.data)
+        }
+        websocket.onclose = function () {
+            console.log("websocket onclose")
+            websocket.close()
+        }
+    }
+</script>
+</body>
+</html>
