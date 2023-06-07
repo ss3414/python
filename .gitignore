@@ -1,0 +1,14 @@
+# 文件夹
+/.idea/
+/build/
+/dist/
+/**/.egg-info/
+/**/.ipynb_checkpoints/
+
+# 项目
+/untitled/
+
+# 文件
+*.log
+*.pyc
+*.whl
