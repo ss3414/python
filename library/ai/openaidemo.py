@@ -4,12 +4,12 @@
 import openai
 
 # ChatGPT官方+代理
-openai.api_key = "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"
+openai.api_key = ""
 openai.api_base = "https://api.openai.com/v1"
 openai.proxy = "socks5://127.0.0.1:10808"
 
 # ChatGPT国内镜像
-# openai.api_key = "sk-sbIVLaRU7ld05a8jisME7wz19f1sgDpJca2yppbCRCYFC2ar"
+# openai.api_key = ""
 # openai.api_base = "https://api.chatanywhere.com.cn/v1"
 
 # ChatGPT 3.5接口

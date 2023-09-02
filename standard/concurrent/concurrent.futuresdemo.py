@@ -33,7 +33,7 @@
 #     for i in executor.map(test, list):  # 第2个参数传入的是列表
 #         pass
 #     end = time.time()
-#     print("耗时" + str(round(end - begin)) + "秒")
+#     print(f"耗时{str(round(end - begin))}秒")
 
 # ****************************************************************分割线****************************************************************
 # todo ProcessPoolExecutor
@@ -54,5 +54,5 @@ if __name__ == "__main__":
         for i in executor.map(test, list):
             print(i)
         end = time.time()
-        print("耗时" + str(round(end - begin)) + "秒")
+        print(f"耗时{str(round(end - begin))}秒")
     pass
