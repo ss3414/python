@@ -1,32 +1,32 @@
 # ****************************************************************分割线****************************************************************
 # todo pyaudio
 
-import wave
+# import wave
 
-import pyaudio
-from tqdm import tqdm
+# import pyaudio
+# from tqdm import tqdm
 
-def play(file):
-    chunk = 1024
-    wave_file = wave.open(file, "rb")
-    player = pyaudio.PyAudio()
+# def play(file):
+#     chunk = 1024
+#     wave_file = wave.open(file, "rb")
+#     player = pyaudio.PyAudio()
 
-    stream = player.open(format=player.get_format_from_width(wave_file.getsampwidth()), channels=wave_file.getnchannels(), rate=wave_file.getframerate(), output=True)
-    data = wave_file.readframes(chunk)
+#     stream = player.open(format=player.get_format_from_width(wave_file.getsampwidth()), channels=wave_file.getnchannels(), rate=wave_file.getframerate(), output=True)
+#     data = wave_file.readframes(chunk)
 
-    datas = []
-    while len(data) > 0:
-        data = wave_file.readframes(chunk)
-        datas.append(data)
-    for i in tqdm(datas):
-        stream.write(i)
+#     datas = []
+#     while len(data) > 0:
+#         data = wave_file.readframes(chunk)
+#         datas.append(data)
+#     for i in tqdm(datas):
+#         stream.write(i)
 
-    stream.stop_stream()
-    stream.close()
+#     stream.stop_stream()
+#     stream.close()
 
-    player.terminate()
+#     player.terminate()
 
-play("C:/Users/Administrator/Desktop/test.wav")
+# play("C:/Users/Administrator/Desktop/test.wav")
 
 # ************************************************************半分割线******************************
 # todo 多线程播放
@@ -83,3 +83,37 @@ play("C:/Users/Administrator/Desktop/test.wav")
 #
 #     # time.sleep(2)
 #     # print(audio.is_alive())
+
+# ************************************************************半分割线******************************
+# todo 录制语音
+
+import wave
+
+import pyaudio
+
+def record(file, record_seconds):
+    format = pyaudio.paInt16
+    channels = 2
+    rate = 44100
+    chunk = 1024
+    player = pyaudio.PyAudio()
+    stream = player.open(format=format, channels=channels, rate=rate, frames_per_buffer=chunk, input=True)
+
+    print("recording")
+    frames = []
+    for i in range(0, int(rate / chunk * record_seconds)):
+        data = stream.read(chunk)
+        frames.append(data)
+    stream.stop_stream()
+    stream.close()
+    player.terminate()
+    print("done")
+
+    wave_file = wave.open(file, "wb")
+    wave_file.setsampwidth(player.get_sample_size(format))
+    wave_file.setnchannels(channels)
+    wave_file.setframerate(rate)
+    wave_file.writeframes(b"".join(frames))
+    wave_file.close()
+
+record("C:/Users/Administrator/Desktop/test.wav", 5)
