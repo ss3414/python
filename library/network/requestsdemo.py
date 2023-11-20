@@ -150,7 +150,7 @@
 #
 # url = "http://127.0.0.1/singleUpload"
 # files = {
-#     "uploadFile": open("D:/新建文件夹（同步）/文档/Idea/idea使用教程2017-06-01.pdf", "rb")
+#     "uploadFile": open("D:/同步/文档/Idea/idea使用教程2017-06-01.pdf", "rb")
 #     # rb以二进制格式（文件）只读打开一个文件
 #     # 相当于<input type="file" name="uploadFile"/>
 # }

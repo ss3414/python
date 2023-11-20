@@ -4,7 +4,7 @@
 # import pymongo
 #
 # # untitled数据库，user表（集合）
-# client = pymongo.MongoClient(host="127.0.0.1", port=27017)
+# client = pymongo.MongoClient(host="127.0.0.1", port=27017, username="root", password="2468")
 # db = client["untitled"]
 # collection = db["user"]
 # print(type(collection))
@@ -14,7 +14,7 @@
 
 # import pymongo
 #
-# client = pymongo.MongoClient(host="127.0.0.1", port=27017)
+# client = pymongo.MongoClient(host="127.0.0.1", port=27017, username="root", password="2468")
 # db = client["untitled"]
 # collection = db["user"]
 #
@@ -46,8 +46,7 @@
 
 # import pymongo
 #
-# # client = pymongo.MongoClient(host="127.0.0.1", port=27017, username="", password="")
-# client = pymongo.MongoClient(host="127.0.0.1", port=27017)
+# client = pymongo.MongoClient(host="127.0.0.1", port=27017, username="root", password="2468")
 # db = client["untitled"]
 # collection = db["user"]
 #
@@ -87,7 +86,7 @@
 
 # import pymongo
 #
-# client = pymongo.MongoClient(host="127.0.0.1", port=27017)
+# client = pymongo.MongoClient(host="127.0.0.1", port=27017, username="root", password="2468")
 # db = client["untitled"]
 # collection = db["user"]
 #
@@ -116,7 +115,7 @@
 # import pymongo
 # from bson import ObjectId  # 必须用pymongo自带的bson
 #
-# client = pymongo.MongoClient(host="127.0.0.1", port=27017)
+# client = pymongo.MongoClient(host="127.0.0.1", port=27017, username="root", password="2468")
 # db = client["untitled"]
 # collection = db["user"]
 #
