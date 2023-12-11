@@ -39,8 +39,8 @@ def form():
 # 下载
 @app.route("/download")
 def download():
-    filename = "idea使用教程2017-06-01.pdf"
-    response = make_response(send_from_directory("D:/同步/文档/Idea/", filename, as_attachment=True))
+    filename = "test.pdf"
+    response = make_response(send_from_directory("C:/Users/Administrator/Desktop/", filename, as_attachment=True))
     response.headers["Content-Disposition"] = "attachment;filename={0}".format(quote(filename))
     response.headers["Content-Type"] = "application/octet-stream"
     return response

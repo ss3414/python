@@ -26,4 +26,3 @@
 #             print(coordinate, "")
 #         else:
 #             print(coordinate, value)
-#     pass

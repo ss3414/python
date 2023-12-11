@@ -4,7 +4,7 @@
 # 准备工作
 # ①Windows Firefox
 # geckodriver解压放到Firefox根目录下
-# 将Firefox目录（C:\Program Files\RunningCheeseFirefox\Firefox）添加进环境变量中
+# 将Firefox目录（C:/Program Files/RunningCheeseFirefox/Firefox）添加进环境变量中
 # ②Windows Chrome
 # chromedriver.exe需要放在chrome.exe同级目录下
 # Chrome加入环境变量后需要重启PyCharm

@@ -135,7 +135,7 @@
 #     response = requests.get(url, constant.HEADERS, proxies=proxies, verify=False)  # 忽略HTTPS证书
 #     print(response.status_code)
 #     print(response.text)
-# except socket_error as e:
+# except Exception as e:
 #     print(e)
 
 # ****************************************************************分割线****************************************************************
@@ -150,7 +150,7 @@
 #
 # url = "http://127.0.0.1/singleUpload"
 # files = {
-#     "uploadFile": open("D:/同步/文档/Idea/idea使用教程2017-06-01.pdf", "rb")
+#     "uploadFile": open("C:/Users/Administrator/Desktop/test.pdf", "rb")
 #     # rb以二进制格式（文件）只读打开一个文件
 #     # 相当于<input type="file" name="uploadFile"/>
 # }
@@ -162,22 +162,21 @@
 # ****************************************************************分割线****************************************************************
 # todo 多线程发送请求
 
-import datetime
-import threading
-from concurrent import futures
-
-import requests
-
-def test(url):
-    begin = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    response = requests.get(url)
-    end = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    print(threading.current_thread().name + " " + begin + "~" + end + "：" + str(response.status_code))
-
-with futures.ThreadPoolExecutor(max_workers=2) as executor:
-    for i in range(2):
-        future = executor.submit(test, "https://github.com")
-    pass
+# import datetime
+# import threading
+# from concurrent import futures
+#
+# import requests
+#
+# def test(url):
+#     begin = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+#     response = requests.get(url)
+#     end = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+#     print(threading.current_thread().name + " " + begin + "~" + end + "：" + str(response.status_code))
+#
+# with futures.ThreadPoolExecutor(max_workers=2) as executor:
+#     for i in range(2):
+#         future = executor.submit(test, "https://github.com")
 
 # ****************************************************************分割线****************************************************************
 # todo 身份认证

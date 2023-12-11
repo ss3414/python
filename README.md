@@ -98,21 +98,18 @@ winreg（注册表）<br>
 # library（第三方库）
 aiohttp（异步请求）<br>
 openpyxl（Excel）<br>
-pretty-errors（错误输出）<br>
 pywin32（Windows）<br>
 tqdm（进度条）<br>
 
 ## ai（人工智能）
-ctranslate2（机器翻译）<br>
 gradio（分享算法）<br>
-openai（OpenAI）<br>
-sentencepiece（分词）<br>
 torch（Torch）<br>
 transformers（加载模型）<br>
 
 ## automatic（自动化测试）
 airtest（跨平台）<br>
-selenium（PC Web）<br>
+playwright（Web）<br>
+selenium（Web）<br>
 
 ## cython
 demo（Cython）<br>

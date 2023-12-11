@@ -26,7 +26,7 @@ session = DBSession()
 #     name="name1",
 #     password=""
 # )
-# with open("/home/fantasy/Downloads/同步/文档/Idea/idea使用教程2017-06-01.pdf", "rb") as f:
+# with open("/home/fantasy/Downloads/test.pdf", "rb") as f:
 #     user.file = f.read()
 # session.add(user)
 

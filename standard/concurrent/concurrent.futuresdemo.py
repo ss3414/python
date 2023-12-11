@@ -55,4 +55,3 @@ if __name__ == "__main__":
             print(i)
         end = time.time()
         print(f"耗时{str(round(end - begin))}秒")
-    pass
