@@ -162,21 +162,21 @@
 # ****************************************************************分割线****************************************************************
 # todo 多线程发送请求
 
-# import datetime
-# import threading
-# from concurrent import futures
-#
-# import requests
-#
-# def test(url):
-#     begin = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-#     response = requests.get(url)
-#     end = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-#     print(threading.current_thread().name + " " + begin + "~" + end + "：" + str(response.status_code))
-#
-# with futures.ThreadPoolExecutor(max_workers=2) as executor:
-#     for i in range(2):
-#         future = executor.submit(test, "https://github.com")
+import datetime
+import threading
+from concurrent import futures
+
+import requests
+
+def test(url):
+    begin = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    response = requests.get(url)
+    end = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    print(threading.current_thread().name + " " + begin + "~" + end + "：" + str(response.status_code))
+
+with futures.ThreadPoolExecutor(max_workers=2) as executor:
+    for i in range(2):
+        future = executor.submit(test, "https://github.com")
 
 # ****************************************************************分割线****************************************************************
 # todo 身份认证
