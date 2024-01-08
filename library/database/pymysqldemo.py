@@ -28,8 +28,8 @@
 # import pymysql
 #
 # connect = pymysql.connect(host="127.0.0.1", port=3306, db="python", user="root", password="2468")
-# table = "students"
 # cursor = connect.cursor()
+# table = "students"
 #
 # # 通用插入方法（数据表字典）
 # data = {
@@ -40,7 +40,7 @@
 # keys = ", ".join(data.keys())
 # values = ", ".join(["%s"] * len(data))
 #
-# sql = "INSERT INTO {table}({keys}) VALUES ({values})".format(table=table, keys=keys, values=values)
+# sql = f"INSERT INTO {table} ({keys}) VALUES ({values})"
 #
 # try:
 #     if cursor.execute(sql, tuple(data.values())):  # 把数据表字典绑定到%s上
@@ -69,7 +69,7 @@
 #         }
 #         keys = ", ".join(data.keys())
 #         values = ", ".join(["%s"] * len(data))
-#         sql = "INSERT INTO {table}({keys}) VALUES ({values})".format(table=table, keys=keys, values=values)
+#         sql = f"INSERT INTO {table} ({keys}) VALUES ({values})"
 #
 #         try:
 #             if cursor.execute(sql, tuple(data.values())):
@@ -79,7 +79,7 @@
 #             print(e)
 #     connect.close()
 #     end = time.time()
-#     print("共耗时:" + str(round(end - begin)) + "秒")
+#     print(f"耗时:{round(end - begin)}秒")
 #
 # batch("", 1, 100000)  # 10000条约15秒
 
@@ -102,8 +102,8 @@
 # keys = ", ".join(data.keys())
 # values = ", ".join(["%s"] * len(data))
 #
-# sql = "INSERT INTO {table}({keys}) VALUES ({values}) ON DUPLICATE KEY UPDATE".format(table=table, keys=keys, values=values)
-# update = ",".join([" {key} = %s".format(key=key) for key in data])
+# sql = f"INSERT INTO {table} ({keys}) VALUES ({values}) ON DUPLICATE KEY UPDATE"
+# update = ",".join([f" {key} = %s" for key in data])
 # sql += update
 # # ①此处拼接的SQL为（INSERT INTO video(id, URL) VALUES (%s, %s) ON DUPLICATE KEY UPDATE id = %s, URL = %s）
 # # ②注意数据表字段除了主键其他不能为NOT NULL
@@ -128,7 +128,7 @@
 #
 # # 通用删除方法
 # condition = "age > 20"
-# sql = "DELETE FROM  {table} WHERE {condition}".format(table=table, condition=condition)
+# sql = f"DELETE FROM  {table} WHERE {condition}"
 #
 # try:
 #     print(cursor.execute(sql))  # 成功execute()输出1，失败输出0

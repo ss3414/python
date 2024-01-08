@@ -13,7 +13,7 @@
 #         await response.text()  # 等待直到返回response.text()
 #         await session.close()
 #     end = time.time()
-#     print("耗时:" + str(round(end - begin)) + "秒")
+#     print(f"耗时:{round(end - begin)}秒")
 #
 # begin = time.time()
 #
@@ -25,7 +25,7 @@
 # loop.run_until_complete(asyncio.wait([test(i) for i in urls]))
 #
 # end = time.time()
-# print("共耗时:" + str(round(end - begin)) + "秒")
+# print(f"耗时:{round(end - begin)}秒")
 
 # ****************************************************************分割线****************************************************************
 # todo 下载二进制数据

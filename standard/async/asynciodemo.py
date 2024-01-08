@@ -9,7 +9,7 @@
 #     begin = time.time()
 #     yield from asyncio.sleep(sleep_time)
 #     end = time.time()
-#     print("耗时:" + str(round(end - begin)) + "秒")
+#     print(f"耗时:{round(end - begin)}秒")
 #
 # begin = time.time()
 #
@@ -19,7 +19,7 @@
 # loop.close()
 #
 # end = time.time()
-# print("共耗时:" + str(round(end - begin)) + "秒")
+# print(f"耗时:{round(end - begin)}秒")
 
 # ****************************************************************分割线****************************************************************
 # todo 异步函数
@@ -31,7 +31,7 @@
 #     begin = time.time()
 #     await asyncio.sleep(sleep_time)  # 此处不能是time.sleep()
 #     end = time.time()
-#     print("耗时:" + str(round(end - begin)) + "秒")
+#     print(f"耗时:{round(end - begin)}秒")
 #     return str(round(end - begin))
 #
 # begin = time.time()
@@ -42,7 +42,7 @@
 # loop.close()
 #
 # end = time.time()
-# print("共耗时:" + str(round(end - begin)) + "秒")
+# print(f"耗时:{round(end - begin)}秒")
 
 # ****************************************************************分割线****************************************************************
 # todo 异步类
@@ -55,7 +55,7 @@
 #         begin = time.time()
 #         await asyncio.sleep(sleep_time)
 #         end = time.time()
-#         print("耗时:" + str(round(end - begin)) + "秒")
+#         print(f"耗时:{round(end - begin)}秒")
 #         return str(round(end - begin))
 #
 # begin = time.time()
@@ -66,7 +66,7 @@
 # loop.close()
 #
 # end = time.time()
-# print("共耗时:" + str(round(end - begin)) + "秒")
+# print(f"耗时:{round(end - begin)}秒")
 
 # ****************************************************************分割线****************************************************************
 # todo 异步递归
@@ -79,7 +79,7 @@
 #     begin = time.time()
 #     await asyncio.sleep(i)
 #     end = time.time()
-#     print("test耗时:" + str(round(end - begin)) + "秒")
+#     print(f"耗时:{round(end - begin)}秒")
 #     if i > 1:
 #         await test(i - 1)
 #     return str(round(end - begin))
@@ -90,7 +90,7 @@
 # loop.run_until_complete(asyncio.wait(todos))
 # loop.close()
 # end = time.time()
-# print("共耗时:" + str(round(end - begin)) + "秒")
+# print(f"耗时:{round(end - begin)}秒")
 
 # ****************************************************************分割线****************************************************************
 # todo 异步回调
@@ -103,7 +103,7 @@
 #     begin = time.time()
 #     await asyncio.sleep(i)
 #     end = time.time()
-#     print("test1耗时:" + str(round(end - begin)) + "秒")
+#     print(f"test1耗时:{round(end - begin)}秒")
 #     return str(round(end - begin))
 #
 # async def test2(i):
@@ -111,7 +111,7 @@
 #     begin = time.time()
 #     await asyncio.sleep(i)
 #     end = time.time()
-#     print("test2耗时:" + str(round(end - begin)) + "秒")
+#     print(f"test2耗时:{round(end - begin)}秒")
 #     return str(round(end - begin))
 #
 # # 获取协程返回值
@@ -125,4 +125,4 @@
 # loop.run_until_complete(asyncio.wait(todos))
 # loop.close()
 # end = time.time()
-# print("共耗时:" + str(round(end - begin)) + "秒")
+# print(f"耗时:{round(end - begin)}秒")

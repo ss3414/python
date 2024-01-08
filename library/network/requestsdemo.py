@@ -172,7 +172,7 @@ def test(url):
     begin = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     response = requests.get(url)
     end = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    print(threading.current_thread().name + " " + begin + "~" + end + "：" + str(response.status_code))
+    print(f"{threading.current_thread().name} {begin}~{end}:{response.status_code}")
 
 with futures.ThreadPoolExecutor(max_workers=2) as executor:
     for i in range(2):

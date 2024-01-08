@@ -47,7 +47,7 @@ shutil（高级文件操作）<br>
 time（时间）<br>
 
 ## concurrent（并发）
-concurrent.futures（并发）<br>
+futures（并发）<br>
 multiprocessing（多进程）<br>
 subprocess（子进程）<br>
 threading（多线程）<br>
@@ -96,7 +96,6 @@ winreg（注册表）<br>
 ******************************************************************************************
 
 # library（第三方库）
-aiohttp（异步请求）<br>
 openpyxl（Excel）<br>
 pywin32（Windows）<br>
 tqdm（进度条）<br>
@@ -146,6 +145,7 @@ pillow（图片）<br>
 pyaudio（音频）<br>
 
 ## network（网络）
+aiohttp（异步请求）<br>
 paramiko（SSH）<br>
 mitmproxy（中间人代理）<br>
 requests（网络请求）<br>
