@@ -3,14 +3,14 @@
 
 import sqlite3
 
-connect = sqlite3.connect("C:/Users/Administrator/Desktop/untitled.db")
+connect = sqlite3.connect("D:/同步/编程/数据/untitled.db")
 cursor = connect.cursor()
 table = "user"
 
 data = {
     "id": 1,
     "name": "name1",
-    "password": "pwd1"
+    "password": open("C:/Users/Administrator/Desktop/test.jpg", "rb").read()
 }
 keys = ",".join(data.keys())
 values = ",".join(["?"] * len(data))
@@ -23,10 +23,11 @@ print(rows)
 # todo 查询
 
 # import sqlite3
-
-# connect = sqlite3.connect("C:/Users/Administrator/Desktop/untitled.db")
+#
+# connect = sqlite3.connect("D:/同步/编程/数据/untitled.db")
 # cursor = connect.cursor()
 # rows = cursor.execute("SELECT * FROM user")
 # # rows = cursor.execute("PRAGMA table_info(user)")  # 查询表结构
 # for row in rows:
+#     open("C:/Users/Administrator/Desktop/test2.jpg", "wb").write(row[2])
 #     print(row)

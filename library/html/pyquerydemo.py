@@ -1,7 +1,7 @@
 # ****************************************************************分割线****************************************************************
 # todo pyquery
 
-from pyquery import PyQuery
+# from pyquery import PyQuery
 
 # # 字符串初始化
 # html = '''
@@ -22,10 +22,10 @@ from pyquery import PyQuery
 # print(element)
 
 # 文件编码问题
-with open("../../untitled/test.html", "r", encoding="UTF-8") as f:
-    content = f.read()
-element = PyQuery(content)
-print(element)
+# with open("../../untitled/test.html", "r", encoding="UTF-8") as f:
+#     content = f.read()
+# element = PyQuery(content)
+# print(element)
 
 # CSS选择器
 # html = '''
@@ -130,17 +130,17 @@ print(element)
 # todo 设置代理
 
 # import socket
-# 
+#
 # import socks
 # from pyquery import PyQuery
-# 
+#
 # headers = {
-#     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36",
+#     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36",
 # }
-# url = "http://www.google.co.jp"
-# 
-# socks.set_default_proxy(socks.SOCKS5, "127.0.0.1", 1080)
+# url = "http://httpbin.org/get"
+#
+# socks.set_default_proxy(socks.SOCKS5, "127.0.0.1", 10808)
 # socket.socket = socks.socksocket
-# 
-# element = PyQuery(url=url, headers=headers)
-# print(type(element))
+#
+# element = PyQuery(url=url, headers=headers, verify=False)
+# print(element.text())
