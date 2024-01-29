@@ -50,4 +50,5 @@ class Interceptor(object):
         insert("http_archive", data)
 
 # 以mitmweb插件的方式启动：mitmdump -s mitmproxydemo.py
+# mitmdump --mode upstream:http://127.0.0.1:10808 -s mitmproxydemo.py > test.log
 addons = [Interceptor()]
