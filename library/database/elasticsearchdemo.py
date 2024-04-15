@@ -31,49 +31,49 @@
 # ****************************************************************分割线****************************************************************
 # todo 查询数据
 
-from elasticsearch import Elasticsearch
-
-client = Elasticsearch(hosts="http://127.0.0.1:9200")
-index = "untitled"
-
-# # title字段ik分词
-# index_settings = {
-#     "settings": {
-#         "analysis": {
-#             "analyzer": {
-#                 "ik_analyzer": {
-#                     "tokenizer": "ik_smart"
-#                 }
-#             }
-#         }
-#     },
-#     "mappings": {
-#         "properties": {
-#             "title": {
-#                 "type": "text",
-#                 "analyzer": "ik_analyzer",
-#                 "search_analyzer": "ik_analyzer"
-#             }
+# from elasticsearch import Elasticsearch
+#
+# client = Elasticsearch(hosts="http://127.0.0.1:9200")
+# index = "untitled"
+#
+# # # title字段ik分词
+# # index_settings = {
+# #     "settings": {
+# #         "analysis": {
+# #             "analyzer": {
+# #                 "ik_analyzer": {
+# #                     "tokenizer": "ik_smart"
+# #                 }
+# #             }
+# #         }
+# #     },
+# #     "mappings": {
+# #         "properties": {
+# #             "title": {
+# #                 "type": "text",
+# #                 "analyzer": "ik_analyzer",
+# #                 "search_analyzer": "ik_analyzer"
+# #             }
+# #         }
+# #     }
+# # }
+# # client.indices.create(index=index, body=index_settings)
+# # client.create(index=index, id="1", document={"title": "战地是第一人称射击游戏"})
+#
+# # # 查询
+# # result = client.search(index=index)
+# # print(result)
+#
+# # 全文检索
+# dsl = {
+#     "query": {
+#         "match": {
+#             "title": "射击"
 #         }
 #     }
 # }
-# client.indices.create(index=index, body=index_settings)
-# client.create(index=index, id="1", document={"title": "中华人民共和国"})
-
-# # 查询
-# result = client.search(index=index)
+# result = client.search(index=index, body=dsl)
 # print(result)
-
-# fixme 全文检索
-dsl = {
-    "query": {
-        "match": {
-            "title": "中国"
-        }
-    }
-}
-result = client.search(index=index, body=dsl)
-print(result)
 
 # ****************************************************************分割线****************************************************************
 # fixme ElasticSearch SQL
