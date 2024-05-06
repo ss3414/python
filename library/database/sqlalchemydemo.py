@@ -46,6 +46,10 @@ session = DBSession()
 # user = session.query(User).filter(User.id == 1).first()  # where id=0 limit 0,1
 # print(user.id)
 
+# # like
+# users = session.query(User).filter(User.name.like("%user%")).all()
+# print(len(users))
+
 # # 部分字段
 # users = session.query(User.id).all()
 # ids = [
