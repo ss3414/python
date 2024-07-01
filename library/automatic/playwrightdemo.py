@@ -49,3 +49,32 @@
 #         await browser.close()
 #
 # asyncio.run(main())
+
+# ************************************************************半分割线******************************
+# todo 保存cookie
+
+import json
+
+from playwright.sync_api import sync_playwright, Playwright
+
+# 导出cookie
+def dump(playwright: Playwright):
+    browser = playwright.chromium.launch(headless=False)
+    context = browser.new_context()
+    page = context.new_page()
+    page.goto("https://kimi.moonshot.cn")
+    # 打断点手动登录
+    storage = context.storage_state()
+    json.dump(storage, open("kimi.json", "w"))
+
+# 使用cookie
+def load(playwright: Playwright):
+    browser = playwright.chromium.launch(headless=False)
+    context = browser.new_context(storage_state="kimi.json")
+    page = context.new_page()
+    page.goto("https://kimi.moonshot.cn")
+    page.pause()
+
+with sync_playwright() as playwright:
+    dump(playwright)
+    load(playwright)
