@@ -2,8 +2,8 @@
 /.idea/
 /build/
 /dist/
-/**/.egg-info/
-/**/.ipynb_checkpoints/
+/**.egg-info/
+/**.ipynb_checkpoints/
 
 # 项目
 /untitled/
