@@ -49,3 +49,44 @@
 #         await browser.close()
 #
 # asyncio.run(main())
+
+# ************************************************************半分割线******************************
+# todo 保存cookie
+
+import json
+
+from playwright.sync_api import sync_playwright, Playwright
+
+# 导出cookie
+def dump(playwright: Playwright, site: str):
+    browser = playwright.chromium.launch(headless=False)
+    context = browser.new_context()
+    page = context.new_page()
+    page.goto(site)
+    # 打断点手动登录
+    storage = context.storage_state()
+    # cookies = storage["cookies"]
+    json.dump(storage, open("storage.json", "w"))
+
+# 使用cookie
+def load(playwright: Playwright, site: str):
+    browser = playwright.chromium.launch(headless=False)
+    # context = browser.new_context()
+
+    # 加载cookie文件
+    context = browser.new_context(storage_state="storage.json")
+
+    # # 加载cookie数据
+    # storage_data = {
+    #     "cookies": [],
+    #     "origins": [],
+    # }
+    # context = browser.new_context(storage_state=storage_data)
+    page = context.new_page()
+    page.goto(site)
+    page.pause()
+
+with sync_playwright() as playwright:
+    site = "http://bbs.wuyou.net/forum.php"
+    # dump(playwright, site)
+    load(playwright, site)

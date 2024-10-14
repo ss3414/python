@@ -7,6 +7,7 @@ pinyin = Pinyin()
 strs = ["中文", "english", "*"]
 sorts = []
 for i in strs:
+    # letter = pinyin.get_pinyin(i)
     # letter = pinyin.get_initial(i[0])
     letter = pinyin.get_initials(i, "")  # 拼音缩写
     sort = {
