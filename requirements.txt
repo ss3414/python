@@ -1,5 +1,6 @@
 aiohttp==3.9.4
 beautifulsoup4==4.12.3
+browser-cookie3==0.19.1
 chardet==5.2.0
 elasticsearch==8.13.0
 flask==3.0.3
