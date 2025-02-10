@@ -104,7 +104,6 @@ Python
 ## ai（人工智能）
 * gradio（分享算法）
 * huggingface
-* torch（Torch）
 * transformers（加载模型）
 
 ## automatic（自动化测试）
@@ -156,8 +155,8 @@ Python
 ## network（网络）
 * aiohttp（异步请求）
 * browser-cookie3（浏览器Cookie）
-* paramiko（SSH）
 * mitmproxy（中间人代理）
+* paramiko（SSH）
 * requests（网络请求）
 
 ## package（模块）

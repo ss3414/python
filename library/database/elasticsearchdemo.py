@@ -74,14 +74,3 @@
 # }
 # result = client.search(index=index, body=dsl)
 # print(result)
-
-# ****************************************************************分割线****************************************************************
-# fixme ElasticSearch SQL
-
-# import requests
-#
-# address = "http://127.0.0.1:9200"
-# explain = "{address}/_plugin/_explain".format(address=address)  # SQL
-# # Payload形式发送数据
-# response = requests.post(url=explain, headers={"Content-Type": "application/json;charset=UTF-8"}, data="SELECT * FROM untitled")
-# print(response.text)

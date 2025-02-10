@@ -17,7 +17,9 @@
 # print(soup.get_text())  # 清除所有标签
 
 # ************************************************************半分割线******************************
-# todo 遍历所有标签并获取内容
+# fixme 遍历所有标签并获取内容
+
+import re
 
 from bs4 import BeautifulSoup
 
@@ -36,7 +38,7 @@ def html_bs_input(html_file):
     for tag in soup.find_all(True):
         html_recursive(tag, contents)
     for content in contents:
-        match = re.search(regex_kanji, content)
+        match = re.search("", content)
         if match:
             dialogs.append(content)
 
