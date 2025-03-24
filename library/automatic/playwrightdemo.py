@@ -53,40 +53,83 @@
 # ************************************************************半分割线******************************
 # todo 保存cookie
 
-import json
+# import json
+
+# from playwright.sync_api import sync_playwright, Playwright
+
+# # 导出cookie
+# def dump(playwright: Playwright, site: str):
+#     browser = playwright.chromium.launch(
+#         headless=False,
+#         args=[
+#             "--disable-blink-features=AutomationControlled",  # 禁用自动化标记
+#             "--disable-infobars",  # 禁用信息栏
+#             "--start-maximized",  # 最大化窗口
+#         ]
+#     )
+#     # 设置更真实的浏览器环境
+#     context = browser.new_context(
+#         user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+#         viewport={"width": 1280, "height": 720},
+#         locale="zh-CN",
+#         timezone_id="Asia/Shanghai",
+#     )
+#     page = context.new_page()
+#     page.goto(site)
+#     # 打断点手动登录
+#     storage = context.storage_state()
+#     # cookies = storage["cookies"]
+#     json.dump(storage, open("cookie.json", "w"))
+
+# # 使用cookie
+# def load(playwright: Playwright, site: str):
+#     browser = playwright.chromium.launch(
+#         headless=False,
+#         args=[
+#             "--disable-blink-features=AutomationControlled",
+#             "--disable-infobars",
+#             "--start-maximized",
+#         ]
+#     )
+#     context = browser.new_context(
+#         storage_state="cookie.json",  # 加载cookie文件
+#         user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+#         viewport={"width": 1280, "height": 720},
+#         locale="zh-CN",
+#         timezone_id="Asia/Shanghai",
+#     )
+#     page = context.new_page()
+#     page.goto(site)
+#     page.pause()
+
+# with sync_playwright() as playwright:
+#     site = "http://bbs.wuyou.net/forum.php"
+#     # dump(playwright, site)
+#     load(playwright, site)
+
+# ************************************************************半分割线******************************
+# todo 监控请求
 
 from playwright.sync_api import sync_playwright, Playwright
 
-# 导出cookie
-def dump(playwright: Playwright, site: str):
+def monitor(playwright: Playwright, site: str):
     browser = playwright.chromium.launch(headless=False)
     context = browser.new_context()
     page = context.new_page()
-    page.goto(site)
-    # 打断点手动登录
-    storage = context.storage_state()
-    # cookies = storage["cookies"]
-    json.dump(storage, open("storage.json", "w"))
 
-# 使用cookie
-def load(playwright: Playwright, site: str):
-    browser = playwright.chromium.launch(headless=False)
-    # context = browser.new_context()
+    def handle_request(request):
+        # 只处理fetch请求
+        if request.resource_type == "fetch":
+            print(f"URL：{request.url}")
+            print(f"方法：{request.method}")
+            response = request.response()
+            print(response.body())
 
-    # 加载cookie文件
-    context = browser.new_context(storage_state="storage.json")
-
-    # # 加载cookie数据
-    # storage_data = {
-    #     "cookies": [],
-    #     "origins": [],
-    # }
-    # context = browser.new_context(storage_state=storage_data)
-    page = context.new_page()
+    # 监听所有网络请求
+    page.on("requestfinished", lambda request: handle_request(request))
     page.goto(site)
     page.pause()
 
 with sync_playwright() as playwright:
-    site = "http://bbs.wuyou.net/forum.php"
-    # dump(playwright, site)
-    load(playwright, site)
+    site = "https://github.com"
+    monitor(playwright, site)
